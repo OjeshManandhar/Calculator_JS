@@ -1,24 +1,37 @@
+let flag = 1;
 let firstNum = 0;
 let secondNum = 0;
+let operator;
 
-function clearArea() {
-    console.log("clearArea()");
+function CE() {
+    console.log("CE()");
 
-    firstNum = 0;
+    firstNum = secondNum= 0;
     document.getElementById("display").value = '';
-}
-
-function clickedNumber(num) {
-    console.log(firstNum);
-
-    if (firstNum < Math.pow(10, 14)) {
-        console.log("clickedNumber(" + num + ")");
-
-        firstNum = firstNum*10 + num
-        document.getElementById("display").value = firstNum;
-    }
 }
 
 function operation(op) {
     console.log("operation(" + op + ")");
+    operator = op;
+}
+
+function clickedNumber(num) {
+    console.log("clickedNumber(" + num + ")");
+
+    if (flag === 1) {
+        if (firstNum < Math.pow(10, 14)) {
+            firstNum = firstNum*10 + num
+
+            console.log("firstNum = " + firstNum);
+            document.getElementById("display").value = firstNum;
+        }
+    }
+    else {
+        if (secondNum < Math.pow(10, 14)) {
+            secondNum = secondNum*10 + num
+
+            console.log("secondNum = " + secondNum);
+            document.getElementById("display").value = firstNum;
+        }
+    }
 }
