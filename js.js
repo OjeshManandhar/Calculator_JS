@@ -4,14 +4,20 @@ let firstNum = 0;
 let secondNum = 0;
 let result = 0;
 let operator = '=';
+let decimalFlag = 0;
+let decimalPlace = 0;
 
 function CE() {
     console.log("CE()");
 
     flag = 1;
     flagResult = 0;
-    firstNum = secondNum = result = 0;
-    op = '=';
+    firstNum = 0;
+    secondNum = 0;
+    result = 0;
+    operator = '=';
+    decimalFlag = 0;
+    decimalPlace = 0;
 
     document.getElementById("display").value = '0';
 }
@@ -49,6 +55,8 @@ function operation(op) {
     }
 
     flag = 2;
+    decimalFlag = 0;
+    decimalPlace = 0;
 }
 
 function clickedNumber(num) {
@@ -58,9 +66,29 @@ function clickedNumber(num) {
         flagResult = 0;
     }
 
+    if (decimalFlag === 1 && num === -1) {
+        decimalFlag = 2;
+        num = 0;
+    }
+
+    if (num === -1){
+        num = 0;
+        decimalFlag = 1;
+        decimalPlace = 1;
+    }
+
     if (flag === 1) {
         if (firstNum < Math.pow(10, 14)) {
-            firstNum = firstNum*10 + num
+            if (decimalFlag === 1) {
+                firstNum = firstNum + num/decimalPlace;
+                decimalPlace *= 10;
+            }
+            else if (decimalFlag === 0) {
+                firstNum = firstNum*10 + num
+            }
+            else if (decimalFlag === 2) {
+                decimalFlag = 1;
+            }
 
             console.log("firstNum = " + firstNum);
             document.getElementById("display").value = firstNum;
@@ -72,7 +100,16 @@ function clickedNumber(num) {
         }
 
         if (secondNum < Math.pow(10, 14)) {
-            secondNum = secondNum*10 + num
+            if (decimalFlag === 1) {
+                secondNum = secondNum + num/decimalPlace;
+                decimalPlace *= 10;
+            }
+            else if (decimalFlag === 0) {
+                secondNum = secondNum*10 + num
+            }
+            else if (decimalFlag === 2) {
+                decimalFlag = 1;
+            }
 
             console.log("secondNum = " + secondNum);
             document.getElementById("display").value = secondNum;
