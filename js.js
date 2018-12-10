@@ -65,7 +65,12 @@ function clickedNumber(num) {
     }
 
     if (num === '-1'){
-        decimalFlag = 1;
+        if (decimalFlag === 0) {
+            decimalFlag = 1;    //'.' is repeated
+        }
+        else if (decimalFlag === 1) {
+            decimalFlag = 2;
+        }
     }
 
     if (flag === 1) {
@@ -74,16 +79,21 @@ function clickedNumber(num) {
                 firstNum = '';
             }
             
-            if (num === '-1') {
-                if (firstNum === '') {
-                    firstNum += '0.';
-                }
-                else {
-                    firstNum += '.';
-                }
+            if (decimalFlag === 2) {
+                decimalFlag = 1;
             }
             else {
-                firstNum += num;
+                if (num === '-1') {
+                    if (firstNum === '') {
+                        firstNum += '0.';
+                    }
+                    else {
+                        firstNum += '.';
+                    }
+                }
+                else {
+                    firstNum += num;
+                }
             }
 
             console.log("firstNum = " + firstNum);
@@ -100,16 +110,21 @@ function clickedNumber(num) {
                 secondNum = '';
             }
             
-            if (num === '-1') {
-                if (secondNum === '') {
-                    secondNum += '0.';
-                }
-                else {
-                    secondNum += '.';
-                }
+            if (decimalFlag === 2) {
+                decimalFlag = 1;
             }
             else {
-                secondNum += num;
+                if (num === '-1') {
+                    if (secondNum === '') {
+                        secondNum += '0.';
+                    }
+                    else {
+                        secondNum += '.';
+                    }
+                }
+                else {
+                    secondNum += num;
+                }
             }
 
             console.log("secondNum = " + secondNum);
