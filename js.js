@@ -18,6 +18,27 @@ function CE() {
 
 function operation(op) {
     console.log("operation(" + op + ")");
+
+    if (flag === 2) {
+        //work on old operator
+        switch (operator) {
+            case '/':
+                firstNum = firstNum/secondNum;
+                break;
+            case '*':
+                firstNum = firstNum*secondNum;
+                break;
+            case '-':
+                firstNum = firstNum - secondNum;
+                break;
+            case '+':
+                firstNum = firstNum + secondNum;
+                break;
+            }
+        
+        secondNum = 0;
+    }
+    
     operator = op;
 
     if (flagResult === 1) {
