@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Gamja+Flower');
+
+body {
+    font-family: 'Gamja Flower', cursive;
+    font-size: 16px;
+    font-style: italic;
+    text-align: center;
+}
+
+table, tr, td {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    text-align: center;
+}
+
+table {
+    margin: 0px auto;
+}
+
+td {
+    width: 50px;
+    height: 50px;
+}
+
+textarea {
+    text-align: right;
+    font-size: 2em;
+}
+
+button {
+    width: 90%;
+    height: 90%;
+    margin: 5px;
+    /*
+    padding: 5px;
+    margin: 10px;
+    */
+    text-align: center;
+    font-size: 1.5em;
+}

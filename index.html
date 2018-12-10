@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        -->
+
+        <title>Calculator</title>
+        <link rel="stylesheet" type="text/css" href="css.css">
+        <script src="js.js"></script>
+    </head>
+
+    <body>
+        <table>
+            <tr>
+                <td colspan="4">
+                    <textarea id="display" rows="1" cols="20"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td><button onclick=clearArea()>CE</button></td>
+                <td><button onclick=operation("/")>/</button></td>
+                <td><button onclick=operation("*")>*</button></td>
+                <td><button onclick=operation("-")>-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick=clickedNumber(7)>7</button></td>
+                <td><button onclick=clickedNumber(8)>8</button></td>
+                <td><button onclick=clickedNumber(9)>9</button></td>
+                <td rowspan="2"><button onclick=operation("+")>+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick=clickedNumber(4)>4</button></td>
+                <td><button onclick=clickedNumber(5)>5</button></td>
+                <td><button onclick=clickedNumber(6)>6</button></td>
+            </tr>
+            <tr>
+                <td><button onclick=clickedNumber(1)>1</button></td>
+                <td><button onclick=clickedNumber(2)>2</button></td>
+                <td><button onclick=clickedNumber(3)>3</button></td>
+                <td rowspan="2"><button onclick=calc()>Calc.</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button onclick=clickedNumber(0)>0</button></td>
+                <td><button>.</button></td>
+            </tr>
+        </table>
+    </body>
+</html>
