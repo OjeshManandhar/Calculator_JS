@@ -1,21 +1,31 @@
 let flag = 1;
+let flagResult = 0;
 let firstNum = 0;
 let secondNum = 0;
-let operator;
+let result = 0;
+let operator = '=';
 
 function CE() {
     console.log("CE()");
 
     flag = 1;
-    firstNum = secondNum = 0;
-    op = null;
+    flagResult = 0;
+    firstNum = secondNum = result = 0;
+    op = '=';
 
-    document.getElementById("display").value = '';
+    document.getElementById("display").value = '0';
 }
 
 function operation(op) {
     console.log("operation(" + op + ")");
     operator = op;
+
+    if (flagResult === 1) {
+        firstNum = result;
+        secondNum = 0;
+
+        flagResult = 0;
+    }
 
     flag = 2;
 
@@ -24,6 +34,10 @@ function operation(op) {
 
 function clickedNumber(num) {
     console.log("clickedNumber(" + num + ")");
+
+    if (flagResult === 1) {
+        flagResult = 0;
+    }
 
     if (flag === 1) {
         if (firstNum < Math.pow(10, 14)) {
@@ -44,7 +58,8 @@ function clickedNumber(num) {
 }
 
 function calculate() {
-    let result;
+    flag = 1;
+    flagResult = 1;
 
     switch (operator) {
     case '/':
@@ -58,6 +73,9 @@ function calculate() {
         break;
     case '+':
         result = firstNum + secondNum;
+        break;
+    case '=':
+        result = firstNum;
         break;
     }
 
