@@ -19,7 +19,7 @@ function CE() {
 function operation(op) {
     console.log("operation(" + op + ")");
 
-    if (flag === 2) {
+    if (flag === 2 && secondNum !== 0) {
         //work on old operator
         switch (operator) {
             case '/':
