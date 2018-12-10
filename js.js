@@ -6,13 +6,20 @@ let operator;
 function CE() {
     console.log("CE()");
 
-    firstNum = secondNum= 0;
+    flag = 1;
+    firstNum = secondNum = 0;
+    op = null;
+
     document.getElementById("display").value = '';
 }
 
 function operation(op) {
     console.log("operation(" + op + ")");
     operator = op;
+
+    flag = 2;
+
+    document.getElementById("display").value = '';
 }
 
 function clickedNumber(num) {
@@ -26,12 +33,12 @@ function clickedNumber(num) {
             document.getElementById("display").value = firstNum;
         }
     }
-    else {
+    else if (flag === 2) {
         if (secondNum < Math.pow(10, 14)) {
             secondNum = secondNum*10 + num
 
             console.log("secondNum = " + secondNum);
-            document.getElementById("display").value = firstNum;
+            document.getElementById("display").value = secondNum;
         }
     }
 }
