@@ -38,7 +38,7 @@ function operation(op) {
         
         secondNum = 0;
     }
-    
+
     operator = op;
 
     if (flagResult === 1) {
@@ -49,8 +49,6 @@ function operation(op) {
     }
 
     flag = 2;
-
-    document.getElementById("display").value = '';
 }
 
 function clickedNumber(num) {
@@ -69,6 +67,10 @@ function clickedNumber(num) {
         }
     }
     else if (flag === 2) {
+        if (secondNum === 0) {
+            document.getElementById("display").value = '';
+        }
+
         if (secondNum < Math.pow(10, 14)) {
             secondNum = secondNum*10 + num
 
