@@ -61,6 +61,8 @@ function clickedNumber(num) {
 
     if (flagResult === 1) {
         flagResult = 0;
+        firstNum = '0';
+        secondNum = '0';
         decimalFlag = 0;
     }
 
