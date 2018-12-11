@@ -26,6 +26,7 @@ td {
 textarea {
     text-align: right;
     font-size: 2em;
+    resize: none;
 }
 
 button {
