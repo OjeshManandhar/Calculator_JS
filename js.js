@@ -66,7 +66,7 @@ function clickedNumber(num) {
         decimalFlag = 0;
     }
 
-    if (num === '-1'){
+    if (num === '.'){
         if (decimalFlag === 0) {
             decimalFlag = 1;    //'.' is repeated
         }
@@ -85,7 +85,7 @@ function clickedNumber(num) {
                 decimalFlag = 1;
             }
             else {
-                if (num === '-1') {
+                if (num === '.') {
                     if (firstNum === '') {
                         firstNum += '0.';
                     }
@@ -116,7 +116,7 @@ function clickedNumber(num) {
                 decimalFlag = 1;
             }
             else {
-                if (num === '-1') {
+                if (num === '.') {
                     if (secondNum === '') {
                         secondNum += '0.';
                     }
